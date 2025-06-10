@@ -1,9 +1,8 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: import.meta.env.VITE_API_URL, // Use environment variable
 });
-
 axiosInstance.interceptors.request.use(
   (config) => {
     const accessToken = JSON.parse(sessionStorage.getItem("accessToken")) || "";
@@ -16,5 +15,6 @@ axiosInstance.interceptors.request.use(
   },
   (err) => Promise.reject(err)
 );
+
 
 export default axiosInstance;
