@@ -12,3 +12,7 @@
  
  • Student Portal: Developed course enrollment system with advanced filtering,interactive video player, progress
  tracking and payment integration.
+
+
+for login as Instructor:
+use: email: instructor@gmail.com password:123456
