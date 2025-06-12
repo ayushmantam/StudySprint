@@ -1,3 +1,4 @@
+import Chatbot from "@/components/chatBot";
 import InstructorCourses from "@/components/instructor-view/courses";
 import InstructorDashboard from "@/components/instructor-view/dashboard";
 import { Button } from "@/components/ui/button";
@@ -85,6 +86,7 @@ function InstructorDashboardpage() {
               </TabsContent>
             ))}
           </Tabs>
+          <Chatbot></Chatbot>
         </div>
       </main>
     </div>

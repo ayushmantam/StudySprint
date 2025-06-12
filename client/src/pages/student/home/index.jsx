@@ -9,6 +9,7 @@ import {
 } from "@/services";
 import { AuthContext } from "@/context/auth-context";
 import { useNavigate } from "react-router-dom";
+import Chatbot from "@/components/chatBot";
 
 function StudentHomePage() {
   const { studentViewCoursesList, setStudentViewCoursesList } =
@@ -116,6 +117,7 @@ function StudentHomePage() {
           )}
         </div>
       </section>
+      <Chatbot></Chatbot>
     </div>
   );
 }
