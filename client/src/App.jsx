@@ -13,7 +13,7 @@ import StudentViewCourseDetailsPage from "./pages/student/course-details";
 import PaypalPaymentReturnPage from "./pages/student/payment-return";
 import StudentCoursesPage from "./pages/student/student-courses";
 import StudentViewCourseProgressPage from "./pages/student/course-progress";
-
+import InterviewPrepPage from "./pages/student/interviewPrep/interviewPrep";
 function App() {
   const { auth } = useContext(AuthContext);
 
@@ -82,6 +82,7 @@ function App() {
           path="course-progress/:id"
           element={<StudentViewCourseProgressPage />}
         />
+        <Route path="interviewPrep" element={<InterviewPrepPage />} />
       </Route>
       <Route path="*" element={<NotFoundPage />} />
     </Routes>

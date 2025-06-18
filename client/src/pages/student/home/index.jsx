@@ -10,7 +10,7 @@ import {
 import { AuthContext } from "@/context/auth-context";
 import { useNavigate } from "react-router-dom";
 import Chatbot from "@/components/chatBot";
-
+import { Link } from "react-router-dom";
 function StudentHomePage() {
   const { studentViewCoursesList, setStudentViewCoursesList } =
     useContext(StudentContext);
@@ -61,6 +61,11 @@ function StudentHomePage() {
           <p className="text-xl">
             Skills for your present and your future. Get Started with US
           </p>
+          <Link to="/interviewPrep">
+            <button className="mt-4 px-4 py-2 bg-green-600 text-white rounded hover:bg-blue-700 transition">
+              Go to Interview Prep
+            </button>
+          </Link>
         </div>
         <div className="lg:w-full mb-8 lg:mb-0">
           <img
