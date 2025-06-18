@@ -16,10 +16,7 @@ import {
   X
 } from 'lucide-react';
 
-// API configuration
-const API_BASE_URL = process.env.NODE_ENV === 'production' 
-  ? 'https://your-production-url.com' 
-  : 'http://localhost:5000';
+const API_BASE_URL = import.meta.env.VITE_API_URL;
 
 // API call functions
 const apiCall = async (endpoint, data) => {
