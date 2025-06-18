@@ -10,6 +10,7 @@ const studentViewOrderRoutes = require("./routes/student-routes/order-routes");
 const studentCoursesRoutes = require("./routes/student-routes/student-courses-routes");
 const studentCourseProgressRoutes = require("./routes/student-routes/course-progress-routes");
 const { GoogleGenerativeAI } = require("@google/generative-ai");
+const connectToDatabase = require("./helpers/db");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -30,7 +31,7 @@ if (!process.env.GEMINI_API_KEY) {
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 // Middleware
-app.use(express.json({ limit: '10mb' })); // Add size limit for security
+app.use(express.json());
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 app.use(
@@ -42,26 +43,9 @@ app.use(
   })
 );
 
-// Database connection with better error handling
-mongoose
-  .connect(MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log("MongoDB connected successfully"))
-  .catch((error) => {
-    console.error("MongoDB connection error:", error);
-    process.exit(1);
-  });
 
-// Handle MongoDB connection events
-mongoose.connection.on('error', (error) => {
-  console.error('MongoDB connection error:', error);
-});
+connectToDatabase(MONGO_URI);
 
-mongoose.connection.on('disconnected', () => {
-  console.log('MongoDB disconnected');
-});
 
 // Routes configuration
 app.use("/auth", authRoutes);
