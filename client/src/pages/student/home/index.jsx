@@ -11,6 +11,7 @@ import { AuthContext } from "@/context/auth-context";
 import { useNavigate } from "react-router-dom";
 import Chatbot from "@/components/chatBot";
 import { Link } from "react-router-dom";
+import { Sparkles } from "lucide-react";
 function StudentHomePage() {
   const { studentViewCoursesList, setStudentViewCoursesList } =
     useContext(StudentContext);
@@ -57,13 +58,18 @@ function StudentHomePage() {
     <div className="min-h-screen bg-white">
       <section className="flex flex-col lg:flex-row items-center justify-between py-8 px-4 lg:px-8">
         <div className="lg:w-1/2 lg:pr-12">
-          <h1 className="text-4xl font-bold mb-4">Learning thet gets you</h1>
-          <p className="text-xl">
+          {/* <h1 className="text-4xl font-bold mb-4">Learning thet gets you</h1> */}
+          {/* <p className="text-xl">
             Skills for your present and your future. Get Started with US
-          </p>
+          </p> */}
+          <h1 className="text-4xl font-bold mb-4">
+            Prepare for your upcoming exam or interview with our AI tool.
+          </h1>
+
           <Link to="/interviewPrep">
             <button className="mt-4 px-4 py-2 bg-green-600 text-white rounded hover:bg-blue-700 transition">
-              Go to Interview Prep
+              <div className="flex justify-center"><Sparkles className="text-2xl text-white-600 mx-2" />
+                  Go to Interview Prep</div>
             </button>
           </Link>
         </div>

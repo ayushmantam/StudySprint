@@ -426,7 +426,7 @@ const InterviewPrepPage = () => {
                 <Sparkles className="text-2xl text-blue-600" />
               </div>
             </div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">Interview Prep Generator</h1>
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">Let's prepare for your interview</h1>
             <p className="text-gray-600">Generate personalized interview questions and answers with AI</p>
           </div>
 
