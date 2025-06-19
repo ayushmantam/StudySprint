@@ -112,6 +112,7 @@ app.post("/api/chat", async (req, res) => {
   }
 });
 
+
 // Interview Question Generation (Improved with better code formatting)
 app.post('/api/generate-questions', async (req, res) => {
   try {
