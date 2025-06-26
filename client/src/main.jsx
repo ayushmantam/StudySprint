@@ -6,11 +6,9 @@ import { BrowserRouter } from "react-router-dom";
 import AuthProvider from "./context/auth-context/index.jsx";
 import InstructorProvider from "./context/instructor-context/index.jsx";
 import StudentProvider from "./context/student-context/index.jsx";
-import { Toast } from "@radix-ui/react-toast";
 
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
-    
     <AuthProvider>
       <InstructorProvider>
         <StudentProvider>

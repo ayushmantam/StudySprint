@@ -12,7 +12,6 @@ import { AuthContext } from "@/context/auth-context";
 import { GraduationCap } from "lucide-react";
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { toast } from "sonner"; // Import the toast function
 
 function AuthPage() {
   const [activeTab, setActiveTab] = useState("signin");
@@ -46,17 +45,7 @@ function AuthPage() {
     );
   }
 
-  // Modified handleRegister to show toast on success
-  const handleRegisterWithToast = async (e) => {
-    e.preventDefault();
-    try {
-      await handleRegisterUser(e);
-      toast.success("Account created successfully! Please sign in.");
-      setActiveTab("signin"); // Optionally switch to sign in tab
-    } catch (error) {
-      toast.error(error.message || "Registration failed. Please try again.");
-    }
-  };
+  console.log(signInFormData);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -112,7 +101,7 @@ function AuthPage() {
                   formData={signUpFormData}
                   setFormData={setSignUpFormData}
                   isButtonDisabled={!checkIfSignUpFormIsValid()}
-                  handleSubmit={handleRegisterWithToast} // Use the new handler
+                  handleSubmit={handleRegisterUser}
                 />
               </CardContent>
             </Card>
