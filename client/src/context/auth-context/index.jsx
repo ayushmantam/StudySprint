@@ -25,7 +25,7 @@ export default function AuthProvider({ children }) {
         setSignUpFormData(initialSignUpFormData);
       } else {
         toast.error(data.message || 'Registration failed');
-      }
+      }E
     } catch (error) {
       toast.error(error.message || 'An error occurred during registration');
     }
