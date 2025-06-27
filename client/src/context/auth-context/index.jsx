@@ -2,7 +2,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { initialSignInFormData, initialSignUpFormData } from "@/config";
 import { checkAuthService, loginService, registerService } from "@/services";
 import { createContext, useEffect, useState } from "react";
-
+import { toast } from 'sonner';
 export const AuthContext = createContext(null);
 
 export default function AuthProvider({ children }) {
@@ -16,7 +16,19 @@ export default function AuthProvider({ children }) {
 
   async function handleRegisterUser(event) {
     event.preventDefault();
-    const data = await registerService(signUpFormData);
+    try {
+      const data = await registerService(signUpFormData);
+
+      if (data.success) {
+        toast.success('User registered successfully!');
+        // Optionally switch to signin tab after successful registration
+        setSignUpFormData(initialSignUpFormData);
+      } else {
+        toast.error(data.message || 'Registration failed');
+      }
+    } catch (error) {
+      toast.error(error.message || 'An error occurred during registration');
+    }
   }
 
   async function handleLoginUser(event) {
