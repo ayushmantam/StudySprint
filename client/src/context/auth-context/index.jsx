@@ -20,7 +20,7 @@ export default function AuthProvider({ children }) {
       const data = await registerService(signUpFormData);
 
       if (data.success) {
-        toast.success('User registered successfully!');
+        toast.success('User registered successfully! Now you can Sign in');
         // Optionally switch to signin tab after successful registration
         setSignUpFormData(initialSignUpFormData);
       } else {
