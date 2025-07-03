@@ -3,7 +3,7 @@
 **StudySprint** is a full-featured Learning Management System (LMS) enhanced with AI-driven interview preparation tools, providing instructors and students with an interactive, secure, and scalable platform for modern education.
 
 [![GitHub Repo](https://img.shields.io/badge/GitHub-ayushmantam%2FStudySprint-blue?logo=github)](https://github.com/ayushmantam/StudySprint)
-[![Live Website](https://img.shields.io/badge/Live%20Website-Visit-green?logo=vercel)]([https://your-live-website-link.com](https://studysprintayushman.onrender.com)) <!-- Replace with actual live URL -->
+[![Live Website](https://img.shields.io/badge/Live%20Website-Visit-green?logo=vercel)](https://your-live-website-link.com](https://studysprintayushman.onrender.com)) <!-- Replace with actual live URL -->
 
 ---
 
