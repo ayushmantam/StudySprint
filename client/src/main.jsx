@@ -16,7 +16,7 @@ function RootWrapper() {
     // Simulate initial loading (can be replaced with auth token check etc.)
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 1200); // Duration in ms
+    }, 1500); // Duration in ms
 
     return () => clearTimeout(timer);
   }, []);
