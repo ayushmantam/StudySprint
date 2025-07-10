@@ -69,3 +69,8 @@
    ```bash
    git clone https://github.com/ayushmantam/StudySprint.git
    cd StudySprint
+2. To clone and set up this project, follow the instructions above.  
+If you need more information about cloning, setup, or require the `.env` file, please contact:
+
+**Email:** [ayushman.tamrakar17@gmail.com](mailto:ayushman.tamrakar17@gmail.com)
+
