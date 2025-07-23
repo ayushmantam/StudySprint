@@ -23,6 +23,7 @@ const authenticate = (req, res, next) => {
     req.user = payload;
 
     next();
+    
   } catch (e) {
     return res.status(401).json({
       success: false,
