@@ -66,12 +66,22 @@ function StudentHomePage() {
             Prepare for your upcoming exam or interview with our AI tool.
           </h1>
 
-          <Link to="/interviewPrep">
-            <button className="mt-4 px-4 py-2 bg-green-600 text-white rounded hover:bg-blue-700 transition">
-              <div className="flex justify-center"><Sparkles className="text-2xl text-white-600 mx-2" />
-                  Go to Interview Prep</div>
-            </button>
-          </Link>
+          <div className="flex flex-col">
+            <Link to="/interviewPrep">
+              <button className="mt-4 px-4 py-2 bg-green-600 text-white rounded hover:bg-blue-700 transition">
+                <div className="flex justify-center"><Sparkles className="text-2xl text-white-600 mx-2" />
+                  Go to Interview Preparation</div>
+              </button>
+            </Link>
+
+            <Link to="/codeReview">
+              <button className="mt-4 px-4 py-2 bg-green-600 text-white rounded hover:bg-blue-700 transition">
+                <div className="flex justify-center"><Sparkles className="text-2xl text-white-600 mx-2" />
+                  Go to Code Review Page</div>
+              </button>
+            </Link>
+          </div>
+
         </div>
         <div className="lg:w-full mb-8 lg:mb-0">
           <img
