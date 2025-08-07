@@ -83,6 +83,7 @@ function App() {
           element={<StudentViewCourseProgressPage />}
         />
         <Route path="interviewPrep" element={<InterviewPrepPage />} />
+        {/* <Route path="codeReviewPage" element={<CodeReviewPage />} /> */}
       </Route>
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
