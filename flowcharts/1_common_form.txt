@@ -1,0 +1,22 @@
+Form Config (e.g., signUpFormControls) 
+      |  // Defines fields, labels, types, and options
+      v
+Parent Component State (formData, setFormData) 
+      |  // Holds current form values
+      v
+CommonForm 
+      |  // Renders form structure + submit button
+      v
+FormControls 
+      |  // Loops through config to render each field
+      v
+renderComponentByType() ---> Chooses correct UI (Input / Select / Textarea)
+      |  // Sets value from formData and updates on change
+      v
+UI Field (value from formData) ---> onChange ---> setFormData() ---> updates state
+      |  // Reflects real-time user input in state
+      v
+User finishes filling form ---> Click Submit
+      |  // Calls submission logic
+      v
+handleSubmit() ---> uses final formData for API call / action
