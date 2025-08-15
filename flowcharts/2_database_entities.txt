@@ -1,0 +1,53 @@
++---------------------+
+|        User         |
++---------------------+
+| - userName          |
+| - userEmail         |
+| - password          |
+| - role              |
++---------------------+
+
++---------------------+
+|       Course        |
++---------------------+
+| - instructorId      |
+| - instructorName    |
+| - title             |
+| - category          |
+| - students[]        |
+| - curriculum[]      |
++---------------------+
+
++---------------------+
+|       Lecture      |
++---------------------+
+| - title            |
+| - videoUrl         |
+| - public_id        |
+| - freePreview      |
++---------------------+
+
++---------------------+
+|      Progress      |
++---------------------+
+| - userId           |
+| - courseId         |
+| - completed        |
+| - lecturesProgress |
++---------------------+
+
++---------------------+
+|       Order        |
++---------------------+
+| - userId           |
+| - courseId         |
+| - orderStatus      |
+| - paymentMethod    |
++---------------------+
+
++---------------------+
+|   StudentCourses   |
++---------------------+
+| - userId           |
+| - courses[]        |
++---------------------+
