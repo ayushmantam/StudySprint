@@ -14,6 +14,7 @@ import PaypalPaymentReturnPage from "./pages/student/payment-return";
 import StudentCoursesPage from "./pages/student/student-courses";
 import StudentViewCourseProgressPage from "./pages/student/course-progress";
 import InterviewPrepPage from "./pages/student/interviewPrep/interviewPrep";
+import ReviewResumePage from "./pages/student/reviewResume/reviewResumePage";
 function App() {
   const { auth } = useContext(AuthContext);
 
@@ -83,6 +84,7 @@ function App() {
           element={<StudentViewCourseProgressPage />}
         />
         <Route path="interviewPrep" element={<InterviewPrepPage />} />
+        <Route path="reviewResume" element={<ReviewResumePage />} />
         {/* <Route path="codeReviewPage" element={<CodeReviewPage />} /> */}
       </Route>
       <Route path="*" element={<NotFoundPage />} />
