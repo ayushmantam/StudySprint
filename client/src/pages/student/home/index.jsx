@@ -74,6 +74,13 @@ function StudentHomePage() {
               </button>
             </Link>
 
+            <Link to="/reviewResume">
+              <button className="mt-4 px-4 py-2 bg-green-600 text-white rounded hover:bg-blue-700 transition">
+                <div className="flex justify-center"><Sparkles className="text-2xl text-white-600 mx-2" />
+                  Go to Review Resume</div>
+              </button>
+            </Link>
+
             <Link to="/codeReview">
               <button className="mt-4 px-4 py-2 bg-green-600 text-white rounded hover:bg-blue-700 transition">
                 <div className="flex justify-center"><Sparkles className="text-2xl text-white-600 mx-2" />
