@@ -1,0 +1,29 @@
+[Frontend: User fills Login Form]
+        |
+        v
+[POST /api/auth/login]
+        |
+        v
+[Backend: loginUser Controller]
+        |
+        |---> Find user by userEmail in DB?
+                |---> NO -> Return 401 "Invalid credentials"
+                |---> YES
+                        |
+                        v
+                  Compare password (bcrypt)
+                        |
+                        |---> Invalid? -> Return 401 "Invalid credentials"
+                        |---> Valid
+                                |
+                                v
+                         Generate JWT Token (expires in 120m)
+                                |
+                                v
+               Return 200 { accessToken, userDetails }
+        |
+        v
+[Frontend Receives Response]
+        |
+        |---> Store JWT (localStorage/session)
+        |---> Redirect to Dashboard/Profile

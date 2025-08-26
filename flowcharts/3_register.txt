@@ -1,0 +1,39 @@
+[Frontend: User fills Register Form]
+        |
+        v
+[POST /api/auth/register]
+        |
+        v
+[Backend: registerUser Controller]
+        |
+        |---> Check if userName/userEmail exists in DB?
+                |---> YES -> Return 400 "User exists"
+                |---> NO
+                        |
+                        v
+                  Hash password (bcrypt)
+                        |
+                        v
+                  Save new user to MongoDB
+                        |
+                        v
+          Return 201 "User registered successfully"
+        |
+        v
+[Frontend Receives Response]
+        |
+        |---> Show Success Message (Redirect to Login)
+
+
+frontend service 
+
+import axiosInstance from "@/api/axiosInstance";
+
+export async function registerService(formData) {
+  const { data } = await axiosInstance.post("/auth/register", {
+    ...formData,
+    role: "user",
+  });
+
+  return data;
+}
