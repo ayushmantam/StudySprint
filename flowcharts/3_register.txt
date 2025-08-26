@@ -1,28 +1,43 @@
-[Frontend: User fills Register Form]
-        |
-        v
-[POST /api/auth/register]
-        |
-        v
-[Backend: registerUser Controller]
-        |
-        |---> Check if userName/userEmail exists in DB?
-                |---> YES -> Return 400 "User exists"
-                |---> NO
-                        |
-                        v
-                  Hash password (bcrypt)
-                        |
-                        v
-                  Save new user to MongoDB
-                        |
-                        v
-          Return 201 "User registered successfully"
-        |
-        v
-[Frontend Receives Response]
-        |
-        |---> Show Success Message (Redirect to Login)
++---------------------------+
+| Frontend: Register Form   |
++---------------------------+
+            |
+            v
++---------------------------+
+| POST /api/auth/register   |
++---------------------------+
+            |
+            v
++---------------------------+
+| Backend: registerUser     |
++---------------------------+
+            |
+            v
++---------------------------+
+| Check if user exists?     |
++---------------------------+
+       |YES                       |NO
+       v                          v
++-------------------+     +----------------------+
+| Return 400 Error  |     | Hash Password        |
+| "User exists"     |     +----------------------+
++-------------------+              |
+                                   v
+                        +----------------------+
+                        | Save User to DB      |
+                        +----------------------+
+                                   |
+                                   v
+                        +----------------------+
+                        | Return 201 Success   |
+                        | "User Registered"    |
+                        +----------------------+
+                                   |
+                                   v
++---------------------------+
+| Frontend: Show Success    |
+| Redirect to Login         |
++---------------------------+
 
 
 frontend service 

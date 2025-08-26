@@ -1,29 +1,45 @@
-[Frontend: User fills Login Form]
-        |
-        v
-[POST /api/auth/login]
-        |
-        v
-[Backend: loginUser Controller]
-        |
-        |---> Find user by userEmail in DB?
-                |---> NO -> Return 401 "Invalid credentials"
-                |---> YES
-                        |
-                        v
-                  Compare password (bcrypt)
-                        |
-                        |---> Invalid? -> Return 401 "Invalid credentials"
-                        |---> Valid
-                                |
-                                v
-                         Generate JWT Token (expires in 120m)
-                                |
-                                v
-               Return 200 { accessToken, userDetails }
-        |
-        v
-[Frontend Receives Response]
-        |
-        |---> Store JWT (localStorage/session)
-        |---> Redirect to Dashboard/Profile
++------------------------+
+| Frontend: Login Form   |
++------------------------+
+            |
+            v
++------------------------+
+| POST /api/auth/login   |
++------------------------+
+            |
+            v
++------------------------+
+| Backend: loginUser     |
++------------------------+
+            |
+            v
++------------------------+
+| Find User by Email?    |
++------------------------+
+       |NO                     |YES
+       v                       v
++-------------------+     +----------------------+
+| Return 401 Error  |     | Compare Password     |
+| "Invalid Login"   |     +----------------------+
++-------------------+              |
+                                   v
+                      +--------------------------+
+                      | Password Correct?        |
+                      +--------------------------+
+                        |NO               |YES
+                        v                 v
+             +-------------------+    +----------------------+
+             | Return 401 Error  |    | Generate JWT Token   |
+             | "Invalid Login"   |    +----------------------+
+             +-------------------+              |
+                                                v
+                                     +----------------------+
+                                     | Return 200 Success   |
+                                     | {Token, User Info}    |
+                                     +----------------------+
+                                                |
+                                                v
++---------------------------+
+| Frontend: Store Token     |
+| Redirect to Dashboard     |
++---------------------------+
