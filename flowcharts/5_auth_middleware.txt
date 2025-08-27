@@ -1,0 +1,73 @@
+FLOW 1: Where authenticate sits in the request pipeline
+
++-------------------------+
+| Client (Frontend/App)   |
++-------------------------+
+            |
+            v
++-------------------------+
+| Request: /api/protected |
++-------------------------+
+            |
+            v
++------------------------------+
+| Express Middleware Chain     |
+| (authenticate -> controller) |
++------------------------------+
+            |
+            v
++-------------------------+
+| authenticate (yours)    |
++-------------------------+
+            |
+      [see Flow 2]
+
+
+
+FLOW 2: Detailed flow inside authenticate
+
++-------------------------------------+
+| Incoming Request (headers, body...) |
++-------------------------------------+
+                    |
+                    v
++-------------------------------------+
+| Read Authorization header           |
+| const authHeader = req.headers.auth |
++-------------------------------------+
+                    |
+                    v
++-------------------------------------+
+| Header present?                     |
++-------------------------------------+
+        | NO                                  | YES
+        v                                     v
++-------------------------------+     +-------------------------------+
+| 401 Unauthorized              |     | Extract token from "Bearer X" |
+| { "User is not authenticated"}|     | const token = split(" ")[1]   |
++-------------------------------+     +-------------------------------+
+                                                |
+                                                v
+                              +-------------------------------------+
+                              | Verify token with secret            |
+                              | verifyToken(token, "JWT_SECRET")    |
+                              +-------------------------------------+
+                                                |
+                                                v
+                          +-----------------------------------------+
+                          | Verification result?                    |
+                          +-----------------------------------------+
+                              | FAIL (expired/invalid)      | PASS
+                              v                             v
+                  +-------------------------------+   +------------------------+
+                  | 401 Unauthorized              |   | Attach payload to      |
+                  | { "invalid token" }           |   | req.user = payload     |
+                  +-------------------------------+   +------------------------+
+                                                              |
+                                                              v
+                                               +-------------------------------+
+                                               | Call next() -> go to route    |
+                                               | handler/controller            |
+                                               +-------------------------------+
+
+

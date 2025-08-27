@@ -1,0 +1,78 @@
+
+// REGISTER
++---------------------------+
+| User fills Sign Up Form   |
++---------------------------+
+            |
+            v
++---------------------------+
+| handleRegisterUser()      |
+| calls registerService()   |
++---------------------------+
+            |
+            v
++---------------------------+
+| Backend: POST /register   |
+| -> Creates user in DB     |
+| -> Returns success/fail   |
++---------------------------+
+            |
+        +---+---+
+        |Success|
+        +---+---+
+            |
+            v
++---------------------------+
+| toast.success()          |
+| Reset form               |
++---------------------------+
+
+
+// LOGIN
++--------------------------+
+| User fills Login Form    |
++--------------------------+
+            |
+            v
++--------------------------+
+| handleLoginUser()        |
+| calls loginService()     |
++--------------------------+
+            |
+            v
++--------------------------+
+| Backend: POST /login     |
+| -> Validates credentials |
+| -> Returns {token, user} |
++--------------------------+
+            |
+        +---+---+
+        |Success|
+        +---+---+
+            |
+            v
++----------------------------+
+| Save token in sessionStorage |
+| setAuth({authenticated:true})|
++----------------------------+
+
+
+C. CHECK AUTH (Auto-login on Refresh)
+
++--------------------------+
+| useEffect() on mount     |
+| -> checkAuthUser()       |
++--------------------------+
+            |
+            v
++--------------------------+
+| checkAuthService()       |
+| -> Sends token to /check |
+| -> Valid/Invalid?        |
++--------------------------+
+        |YES                 |NO
+        v                    v
++------------------+     +-------------------+
+| setAuth(true)    |     | setAuth(false)    |
+| setLoading(false)|     | setLoading(false) |
++------------------+     +-------------------+
