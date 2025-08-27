@@ -1,0 +1,74 @@
+            FRONTEND (React + AuthProvider)
++--------------------------------------------------------+
+| User fills SignUp/Login Form                           |
++--------------------------------------------------------+
+            |                               
+            v                               
++------------------------------+              
+| Register/Login Handler       |  (handleRegisterUser / handleLoginUser)
++------------------------------+              
+            |                               
+            v                               
++------------------------------+              
+| Calls Backend API            |              
+| (registerService/loginService)             
++------------------------------+              
+            |                               
+            v                               
+            BACKEND (Express + MongoDB + JWT)
++----------------------------------------------------------+
+| /api/auth/register (POST)                                |
+| -> Checks if user exists                                 |
+| -> Hashes password (bcrypt)                              |
+| -> Saves to DB                                           |
+| -> Returns 201 {success:true}                            |
++----------------------------------------------------------+
+            |
+            v
+   [User registered successfully - Frontend shows toast]
+
+------------------------------------------------------------
+
++----------------------------------------------------------+
+| /api/auth/login (POST)                                   |
+| -> Finds user by email                                   |
+| -> Compares password (bcrypt)                            |
+| -> On success:                                           |
+|      - Generates JWT (jwt.sign) with user info           |
+|      - Returns 200 {token, user}                         |
++----------------------------------------------------------+
+            |
+            v
++----------------------------------------------------------+
+| Frontend receives {token, user}                          |
+| -> Stores token in sessionStorage                        |
+| -> Updates AuthContext (authenticate:true)              |
+| -> Redirects to Dashboard                                |
++----------------------------------------------------------+
+
+------------------------------------------------------------
+
+        FUTURE PROTECTED API CALL (Example: /api/user/me)
++----------------------------------------------------------+
+| Frontend sends request with Authorization header         |
+| Authorization: Bearer <JWT>                              |
++----------------------------------------------------------+
+            |
+            v
++----------------------------------------------------------+
+| Backend Protected Route (/api/user/me)                   |
+| Middleware: authenticate                                 |
+| -> Extracts token from header                            |
+| -> Verifies with jwt.verify(secret)                      |
+| -> If valid: attaches user to req.user                   |
+| -> Calls next() to controller                            |
+| -> Controller returns 200 {user data}                    |
+| -> If invalid/missing: returns 401 Unauthorized          |
++----------------------------------------------------------+
+            |
+            v
++----------------------------------------------------------+
+| Frontend gets response                                   |
+| -> If success: shows user info                           |
+| -> If 401: resets auth & redirects to login              |
++----------------------------------------------------------+
