@@ -1,6 +1,5 @@
 # StudySprint
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Built with React](https://img.shields.io/badge/Frontend-React-blue.svg)](#)
 [![Backend Node.js](https://img.shields.io/badge/Backend-Node.js-brightgreen.svg)](#)
 
