@@ -22,6 +22,17 @@
 
 ---
 
+## 🎥 Demo Videos
+
+**Interview Prep Tool**  
+[![Watch Video](https://img.shields.io/badge/Watch%20Demo-Interview%20Prep%20Tool-blue?logo=google-drive)](https://drive.google.com/file/d/1BF--rT4_QqhqtQPUFaskDfUjQ94NsJdF/view?usp=sharing)
+
+**Resume Analyzer**  
+[![Watch Video](https://img.shields.io/badge/Watch%20Demo-Resume%20Analyzer-green?logo=google-drive)](https://drive.google.com/file/d/1ybI063Y_hUKDdDeAqToTMKZrgFLB53om/view?usp=sharing)
+
+**Login & Signup**  
+[![Watch Video](https://img.shields.io/badge/Watch%20Demo-Login%20%26%20SignUp-orange?logo=google-drive)](https://drive.google.com/file/d/1Ym0EubFbtmc6Tt6mveQCpd7oUAXLV3L5/view?usp=sharing)
+
 ## 🛠️ Tech Stack
 
 - **Frontend:** React.js, Shadcn UI  
