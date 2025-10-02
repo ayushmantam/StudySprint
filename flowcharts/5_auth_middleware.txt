@@ -71,3 +71,4 @@ FLOW 2: Detailed flow inside authenticate
                                                +-------------------------------+
 
 
+feat: Add comprehensive flowchart for frontend and backend authentication processes

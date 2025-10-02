@@ -1,0 +1,33 @@
+FRONTEND (InstructorDashboardPage.jsx)
++-------------------------------------------------------------+
+| 1. On Page Load                                             |
+|    -> useEffect() calls fetchAllCourses()                  |
+|    -> fetchInstructorCourseListService() sends request      |
++-------------------------------------------------------------+
+            |
+            v
+BACKEND (Protected Route)
++-------------------------------------------------------------+
+| GET /api/instructor/courses                                |
+| Middleware: authenticate                                   |
+| -> Checks token (JWT)                                      |
+| -> If valid: fetch courses from DB, return {success, data} |
+| -> If invalid: return 401 Unauthorized                     |
++-------------------------------------------------------------+
+            |
+            v
+FRONTEND (Context Updates)
++-------------------------------------------------------------+
+| If success: setInstructorCoursesList(response.data)         |
+| -> <InstructorDashboard /> & <InstructorCourses /> render   |
++-------------------------------------------------------------+
+            |
+            v
+LOGOUT FLOW
++-------------------------------------------------------------+
+| User clicks Logout                                          |
+| -> handleLogout():                                          |
+|    - resetCredentials() (AuthContext)                       |
+|    - sessionStorage.clear()                                 |
+| -> Redirect to Login Page                                   |
++-------------------------------------------------------------+
