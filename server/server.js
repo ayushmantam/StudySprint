@@ -134,7 +134,7 @@ app.post('/api/ai/review-resume', upload.single('resume'), async (req, res) => {
         `;
 
         // 4. Call the Gemini API with the prompt and the file
-        const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+        const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
         const result = await model.generateContent([prompt, generativeFile]);
         const response = await result.response;
         const reviewText = response.text();
@@ -174,7 +174,7 @@ app.post("/api/chat", async (req, res) => {
         if (!message || typeof message !== 'string') {
             return res.status(400).json({ error: "Message is required and must be a string" });
         }
-        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+        const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
         const result = await model.generateContent(message);
         const response = await result.response;
         const text = response.text();
@@ -198,7 +198,7 @@ app.post('/api/generate-questions', async (req, res) => {
             Generate ${numberOfQuestions} questions and detailed answers.
             Return ONLY a valid JSON array in the format: [{"question": "...", "answer": "..."}]
         `;
-        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+        const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
         const result = await model.generateContent(prompt);
         const response = await result.response;
         const text = response.text();
@@ -228,7 +228,7 @@ app.post('/api/generate-explanation', async (req, res) => {
             Provide a title and a detailed explanation.
             Return ONLY a valid JSON object in the format: {"title": "...", "explanation": "..."}
         `;
-        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+        const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
         const result = await model.generateContent(prompt);
         const response = await result.response;
         const text = response.text();

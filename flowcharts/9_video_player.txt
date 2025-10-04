@@ -1,0 +1,38 @@
+--------------------------------------------------------
+|                  VideoPlayer Component                |
+--------------------------------------------------------
+|  State Management (React useState + useRef)           |
+|  --------------------------------------------------   |
+|  - playing (bool)                                     |
+|  - volume (0 → 1)                                     |
+|  - muted (bool)                                       |
+|  - played (0 → 1)                                     |
+|  - seeking (bool)                                     |
+|  - isFullScreen (bool)                                |
+|  - showControls (bool)                                |
+|  - refs: playerRef, playerContainerRef, controlsRef   |
+|------------------------------------------------------ |
+|  Event Handlers                                       |
+|  --------------------------------------------------   |
+|  - handlePlayAndPause()                               |
+|  - handleRewind()/handleForward()                     |
+|  - handleToggleMute()                                 |
+|  - handleSeekChange()/handleSeekMouseUp()             |
+|  - handleVolumeChange()                               |
+|  - handleFullScreen()                                 |
+|  - handleMouseMove() (auto-hide controls after 3s)    |
+|------------------------------------------------------ |
+|  UI Rendering                                         |
+|  --------------------------------------------------   |
+|  - ReactPlayer (3rd party lib)                        |
+|  - Custom Controls (Buttons + Slider)                 |
+|    * Play/Pause                                       |
+|    * Rewind/Forward                                   |
+|    * Mute/Unmute                                      |
+|    * Volume Slider                                    |
+|    * Seekbar Slider                                   |
+|    * Time Display (current / total)                   |
+|    * FullScreen Toggle                                |
+--------------------------------------------------------
+
+https://chatgpt.com/share/68ddd864-e150-800e-aa6f-df1ab1ad3909
