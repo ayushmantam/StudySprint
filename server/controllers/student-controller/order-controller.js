@@ -110,7 +110,7 @@ const createOrder = async (req, res) => {
             items: [
               {
                 name: courseTitle,
-                sku: courseId,
+                sku: courseId,// it is a kind of id
                 price: Number(coursePricing).toFixed(2),
                 currency: "USD",
                 quantity: 1,
