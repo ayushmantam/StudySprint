@@ -1,0 +1,29 @@
+Frontend (React)
+   |
+   |  POST /media/upload (multipart/form-data)
+   |  file = lecture.mp4
+   v
+Backend (Express + Multer)
+   |
+   |  Temporarily store file in /uploads
+   v
+Cloudinary Helper
+   |
+   |  Upload file to Cloudinary
+   v
+Cloudinary Cloud
+   |
+   |  Returns secure_url + public_id
+   v
+Backend
+   |
+   |  Send URL to frontend
+   |  Save URL & publicId in MongoDB
+   v
+Frontend
+   |
+   |  Plays video using Cloudinary URL
+
+
+
+
