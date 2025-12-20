@@ -1,0 +1,51 @@
+┌────────────┐
+│  FRONTEND  │
+│ (Buy Btn)  │
+└─────┬──────┘
+      │ POST /order/create
+      ▼
+┌────────────────────┐
+│     BACKEND        │
+│ createOrder()      │
+└─────┬──────────────┘
+      │
+      ├── FREE COURSE?
+      │       │
+      │       ▼
+      │   Save order
+      │   Add course to student
+      │   Add student to course
+      │   DONE
+      │
+      └── PAID COURSE
+              │
+              ▼
+      ┌────────────────────┐
+      │   PayPal API       │
+      │ payment.create()  │
+      └─────┬─────────────┘
+            │ approval_url
+            ▼
+     Redirect user to PayPal
+            │
+            ▼
+     User approves payment
+            │
+            ▼
+ PayPal redirects to frontend
+ (/payment-return?paymentId&PayerID)
+            │
+            ▼
+┌────────────────────┐
+│  FRONTEND          │
+│ capture payment    │
+└─────┬──────────────┘
+      │ POST /order/capture
+      ▼
+┌────────────────────┐
+│ BACKEND            │
+│ capturePayment()   │
+│ - confirm order    │
+│ - add course       │
+│ - add student      │
+└────────────────────┘
